@@ -9,8 +9,6 @@ use Parser\InputParser;
 class Calculator
 {
     private IOInterface $io;
-    private NumberStack $stack;
-    private OperatorQueue $queue;
     private InputValidator $validator;
     private InputParser $parser;
 
@@ -20,7 +18,6 @@ class Calculator
 
         $this->validator = new InputValidator();
         $this->parser = new InputParser();
-
     }
 
     public function exec()
@@ -33,6 +30,11 @@ class Calculator
 
         while (true) {
             $input = $this->io->input();
+
+            if ($input == 'q') {
+                $this->io->exit();
+            }
+
             $errors = $this->validator->validate($input);
 
             if ($errors) {
@@ -52,22 +54,16 @@ class Calculator
         }
     }
 
-    public function calc(NumberStack $stack, OperatorQueue $queue)
+    public function calc(NumberStack $stack, OperatorQueue $queue): bool
     {
-        /*if ($stack->getCount() < 2) {
-            $queue->dequeue();
-            echo 'Must have at least 2 numbers to perform calculation.';
-            return true;
-        }*/
-
         if ($queue->isEmpty()) {
             return true;
         }
 
         while (!$queue->isEmpty()) {
             $operator = $queue->dequeue();
-            $x = $stack->pop();
             $y = $stack->pop();
+            $x = $stack->pop();
 
             switch ($operator) {
                 case '+':
@@ -84,8 +80,6 @@ class Calculator
                     break;
             }
         }
-
-        //echo $stack->top() . PHP_EOL;
 
         return true;
     }

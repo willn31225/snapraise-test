@@ -18,6 +18,6 @@ class CLI implements IOInterface
 
     public function exit()
     {
-        return 0;
+        exit();
     }
 }
