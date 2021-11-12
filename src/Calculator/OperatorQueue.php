@@ -6,12 +6,18 @@ class OperatorQueue
 {
     private $queue;
 
-    public function getValidOperators()
+    /**
+     * @return Array
+     */
+    public function getValidOperators(): Array
     {
         return ['+', '-', '*', '/'];
     }
 
-    public function getCount()
+    /**
+     * @return int
+     */
+    public function getCount(): int
     {
         return count($this->queue);
     }

@@ -7,6 +7,11 @@ use Calculator\OperatorQueue;
 
 class InputParser
 {
+    /**
+     * @param $input
+     * @param NumberStack $stack
+     * @returns void
+     */
     public function parseInputForNumbers($input, NumberStack $stack): void
     {
         $inputArray = explode(' ', $input);
@@ -18,6 +23,11 @@ class InputParser
         }
     }
 
+    /**
+     * @param $input
+     * @param OperatorQueue $queue
+     * @returns void
+     */
     public function parseInputForOperators($input, OperatorQueue $queue): void
     {
         $inputArray = explode(' ', $input);

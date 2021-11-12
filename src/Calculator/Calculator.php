@@ -12,6 +12,9 @@ class Calculator
     private InputValidator $validator;
     private InputParser $parser;
 
+    /**
+     * @param IOInterface $io
+     */
     public function __construct(IOInterface $io)
     {
         $this->io = $io;
@@ -20,6 +23,9 @@ class Calculator
         $this->parser = new InputParser();
     }
 
+    /**
+     * @returns void
+     */
     public function exec()
     {
         $stack = new NumberStack();
@@ -54,6 +60,11 @@ class Calculator
         }
     }
 
+    /**
+     * @param NumberStack $stack
+     * @param OperatorQueue $queue
+     * @return bool
+     */
     public function calc(NumberStack $stack, OperatorQueue $queue): bool
     {
         if ($queue->isEmpty()) {

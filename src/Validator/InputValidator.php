@@ -8,11 +8,18 @@ class InputValidator
 {
     private $errors = [];
 
-    public function clearErrors()
+    /**
+     * @returns void
+     */
+    public function clearErrors(): void
     {
         $this->errors = [];
     }
 
+    /**
+     * @param $input
+     * @return bool
+     */
     public function isSpaceDelimited($input) : bool
     {
         $inputArray = explode(' ', $input);
@@ -30,6 +37,10 @@ class InputValidator
         return false;
     }
 
+    /**
+     * @param $input
+     * @return bool
+     */
     public function hasNumbersOrValidOperators($input) : bool
     {
         $inputArray = explode(' ', $input);
@@ -46,6 +57,10 @@ class InputValidator
         return true;
     }
 
+    /**
+     * @param $input
+     * @return bool
+     */
     public function areOperatorsPrecededByNumbers($input): bool
     {
         $inputArray = explode(' ', $input);
@@ -64,6 +79,10 @@ class InputValidator
         return true;
     }
 
+    /**
+     * @param $item
+     * @return bool
+     */
     private function isNumberOrValidOperator($item)
     {
         if (is_numeric($item) || in_array($item, $this->getValidOperators())) {
@@ -73,13 +92,20 @@ class InputValidator
         return false;
     }
 
-    private function getValidOperators()
+    /**
+     * @return array
+     */
+    private function getValidOperators(): array
     {
         $operatorQueue = new OperatorQueue();
 
         return $operatorQueue->getValidOperators();
     }
 
+    /**
+     * @param $input
+     * @return array
+     */
     public function validate($input)
     {
         $this->isSpaceDelimited($input);
