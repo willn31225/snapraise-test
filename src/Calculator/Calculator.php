@@ -45,7 +45,7 @@ class Calculator
 
             if ($errors) {
                 foreach ($errors as $error) {
-                    echo $error . PHP_EOL;
+                    $this->io->output($error);
                 }
                 $this->validator->clearErrors();
                 continue;
@@ -54,9 +54,14 @@ class Calculator
             $this->parser->parseInputForNumbers($input, $stack);
             $this->parser->parseInputForOperators($input, $queue);
 
+            if ($stack->getCount() < 2 && !$queue->isEmpty()) {
+                $this->io->output('Must have at least 2 numbers to perform calculation.');
+
+            }
+
             $this->calc($stack, $queue);
 
-            echo $stack->top() . PHP_EOL;
+            $this->io->output($stack->top());
         }
     }
 

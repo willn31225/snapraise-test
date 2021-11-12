@@ -20,7 +20,7 @@ class CLI implements IOInterface
      */
     public function output($output)
     {
-        echo $output;
+        echo $output . PHP_EOL;
     }
 
     public function exit()

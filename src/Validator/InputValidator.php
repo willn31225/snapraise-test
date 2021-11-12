@@ -83,7 +83,7 @@ class InputValidator
      * @param $item
      * @return bool
      */
-    private function isNumberOrValidOperator($item)
+    private function isNumberOrValidOperator($item): bool
     {
         if (is_numeric($item) || in_array($item, $this->getValidOperators())) {
             return true;
@@ -106,10 +106,10 @@ class InputValidator
      * @param $input
      * @return array
      */
-    public function validate($input)
+    public function validate($input): array
     {
         $this->isSpaceDelimited($input);
-        $this->isNumberOrValidOperator($input);
+        $this->hasNumbersOrValidOperators($input);
         $this->areOperatorsPrecededByNumbers($input);
 
         return $this->errors;
