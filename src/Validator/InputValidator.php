@@ -1,6 +1,6 @@
 <?php
 
-class Validator
+class InputValidator
 {
     private $errors;
 

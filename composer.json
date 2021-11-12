@@ -1,4 +1,9 @@
 {
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
     "require": {
         "phpunit/phpunit": "^9.5",
         "symfony/console": "^5.3"
