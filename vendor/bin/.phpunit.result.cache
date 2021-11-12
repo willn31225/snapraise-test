@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":{"NumberStackTest::testPHPUnit":0.001}}
+{"version":1,"defects":{"OperatorQueueTest::testDequeue":4},"times":{"NumberStackTest::testPHPUnit":0.001,"NumberStackTest::testPush":0.001,"NumberStackTest::testPop":0,"OperatorQueueTest::testEnqueue":0,"OperatorQueueTest::testDequeue":0}}

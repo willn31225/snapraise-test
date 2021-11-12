@@ -31,11 +31,15 @@ class NumberStack
     }
 
     /**
-     * @returns int|float
+     * @returns int|float|null
      */
-    public function top() : bool
+    public function top()
     {
-        return current($this->stack);
+        if (!$this->isEmpty()) {
+            return current($this->stack);
+        }
+
+        return null;
     }
 
     /**

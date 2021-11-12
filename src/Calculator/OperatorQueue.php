@@ -31,6 +31,18 @@ class OperatorQueue
     }
 
     /**
+     * @returns string
+     */
+    public function peek()
+    {
+        if (!$this->isEmpty()) {
+            return $this->queue[0];
+        }
+
+        return null;
+    }
+
+    /**
      * @returns bool
      */
     public function isEmpty() : bool
