@@ -44,10 +44,18 @@ class NumberStack
     public function top()
     {
         if (!$this->isEmpty()) {
-            return current($this->stack);
+            return end($this->stack);
         }
 
         return null;
+    }
+
+    /**
+     * @returns string
+     */
+    public function show()
+    {
+        return implode(' ', $this->stack);
     }
 
     /**

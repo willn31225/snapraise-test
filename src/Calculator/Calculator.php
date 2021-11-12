@@ -17,28 +17,68 @@ class Calculator
     public function __construct(IOInterface $io)
     {
         $this->io = $io;
-        $this->stack = new NumberStack();
-        $this->queue = new OperatorQueue();
+
         $this->validator = new InputValidator();
         $this->parser = new InputParser();
 
-        $this->stack->init();
-        $this->queue->init();
     }
 
     public function exec()
     {
-        $input = $this->io->input();
-        $this->validator->validate($input);
+        $stack = new NumberStack();
+        $queue = new OperatorQueue();
 
-        $this->parser->parseInputForNumbers($input, $this->stack);
-        $this->parser->parseInputForOperators($input, $this->queue);
+        $stack->init();
+        $queue->init();
 
-        $this->calc();
+        while (true) {
+            $input = $this->io->input();
+            $this->validator->validate($input);
+
+            $this->parser->parseInputForNumbers($input, $stack);
+            $this->parser->parseInputForOperators($input, $queue);
+
+            $this->calc($stack, $queue);
+
+            echo $stack->top() . PHP_EOL;
+        }
     }
 
-    public function calc()
+    public function calc(NumberStack $stack, OperatorQueue $queue)
     {
+        /*if ($stack->getCount() < 2) {
+            $queue->dequeue();
+            echo 'Must have at least 2 numbers to perform calculation.';
+            return true;
+        }*/
 
+        if ($queue->isEmpty()) {
+            return true;
+        }
+
+        while (!$queue->isEmpty()) {
+            $operator = $queue->dequeue();
+            $x = $stack->pop();
+            $y = $stack->pop();
+
+            switch ($operator) {
+                case '+':
+                    $stack->push($x+$y);
+                    break;
+                case '-':
+                    $stack->push($x-$y);
+                    break;
+                case '*':
+                    $stack->push($x*$y);
+                    break;
+                case '/':
+                    $stack->push($x/$y);
+                    break;
+            }
+        }
+
+        //echo $stack->top() . PHP_EOL;
+
+        return true;
     }
 }

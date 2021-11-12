@@ -53,6 +53,14 @@ class OperatorQueue
     }
 
     /**
+     * @returns string
+     */
+    public function show()
+    {
+        return implode(' ', $this->queue);
+    }
+
+    /**
      * @returns bool
      */
     public function isEmpty() : bool

@@ -27,6 +27,7 @@ final class InputValidatorTest extends TestCase
         $this->assertTrue($this->validator->hasNumbersOrValidOperators('+'));
         $this->assertTrue($this->validator->hasNumbersOrValidOperators('2 4 6 + + -'));
         $this->assertFalse($this->validator->hasNumbersOrValidOperators('a 2 b - ^'));
+        $this->assertFalse($this->validator->hasNumbersOrValidOperators('8+'));
     }
 
     public function testAreOperatorsPrecededByNumbersValidation()
@@ -35,5 +36,6 @@ final class InputValidatorTest extends TestCase
         $this->assertTrue($this->validator->areOperatorsPrecededByNumbers('+'));
         $this->assertTrue($this->validator->areOperatorsPrecededByNumbers('2 4 6 + + -'));
         $this->assertFalse($this->validator->areOperatorsPrecededByNumbers('2 4 6 + 8 -'));
+        $this->assertFalse($this->validator->areOperatorsPrecededByNumbers('8 + 8'));
     }
 }
