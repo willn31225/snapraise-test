@@ -6,6 +6,11 @@ class OperatorQueue
 {
     private $queue;
 
+    public function getValidOperators()
+    {
+        return ['+', '-', '*', '/'];
+    }
+
     /**
      * @returns void
      */

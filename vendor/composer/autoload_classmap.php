@@ -15,7 +15,6 @@ return array(
     'File' => $baseDir . '/src/IO/File.php',
     'IO\\CLI' => $baseDir . '/src/IO/CLI.php',
     'IO\\IOInterface' => $baseDir . '/src/IO/IOInterface.php',
-    'InputValidator' => $baseDir . '/src/Validator/InputValidator.php',
     'JsonException' => $vendorDir . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
     'Normalizer' => $vendorDir . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
     'PHPUnit\\Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
@@ -647,6 +646,7 @@ return array(
     'TheSeer\\Tokenizer\\Tokenizer' => $vendorDir . '/theseer/tokenizer/src/Tokenizer.php',
     'TheSeer\\Tokenizer\\XMLSerializer' => $vendorDir . '/theseer/tokenizer/src/XMLSerializer.php',
     'UnhandledMatchError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
+    'Validator\\InputValidator' => $baseDir . '/src/Validator/InputValidator.php',
     'ValueError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     'WebSocket' => $baseDir . '/src/IO/WebSocket.php',
 );

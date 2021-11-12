@@ -132,7 +132,6 @@ class ComposerStaticInit26ed67ef2953a230b851b87686a63e5b
         'File' => __DIR__ . '/../..' . '/src/IO/File.php',
         'IO\\CLI' => __DIR__ . '/../..' . '/src/IO/CLI.php',
         'IO\\IOInterface' => __DIR__ . '/../..' . '/src/IO/IOInterface.php',
-        'InputValidator' => __DIR__ . '/../..' . '/src/Validator/InputValidator.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
@@ -764,6 +763,7 @@ class ComposerStaticInit26ed67ef2953a230b851b87686a63e5b
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
+        'Validator\\InputValidator' => __DIR__ . '/../..' . '/src/Validator/InputValidator.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
         'WebSocket' => __DIR__ . '/../..' . '/src/IO/WebSocket.php',
     );
