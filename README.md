@@ -31,9 +31,15 @@ This continues until there are no more operators to perform an operation on.
 
 This process continues until the user uses Ctrl-C or enters 'q' to exit the application.
 
+## Trade Offs etc.
+
+Issues were discovered involving the InputParser even though unit testing showed it to be working for the given cases.
+
+More thought may need to be put into to implenting WebSocket and TCP IOs given the current state of the code.
+
 ## How To Run
 
-cd to app directory and run:
+cd to the root of the app directory and run:
 
 ```
 ./clirpn calculator
