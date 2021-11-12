@@ -33,7 +33,7 @@ This process continues until the user uses Ctrl-C or enters 'q' to exit the appl
 
 ## Trade Offs etc.
 
-Issues were discovered involving the InputParser even though unit testing showed it to be working for the given cases.
+Fixed! <strike>Issues were discovered involving the InputParser even though unit testing showed it to be working for the given cases.</strike>
 
 More thought may need to be put into to implenting WebSocket and TCP IOs given the current state of the code.
 
