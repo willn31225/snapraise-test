@@ -56,7 +56,6 @@ class Calculator
 
             if ($stack->getCount() < 2 && !$queue->isEmpty()) {
                 $this->io->output('Must have at least 2 numbers to perform calculation.');
-
             }
 
             $this->calc($stack, $queue);
