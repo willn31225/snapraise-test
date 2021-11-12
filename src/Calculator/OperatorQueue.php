@@ -11,6 +11,11 @@ class OperatorQueue
         return ['+', '-', '*', '/'];
     }
 
+    public function getCount()
+    {
+        return count($this->queue);
+    }
+
     /**
      * @returns void
      */

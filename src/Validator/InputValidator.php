@@ -74,6 +74,10 @@ class InputValidator
         $this->isNumberOrValidOperator($input);
         $this->areOperatorsPrecededByNumbers($input);
 
-        return $this->errors;
+        if ($this->errors) {
+            return $this->errors;
+        }
+
+        return true;
     }
 }

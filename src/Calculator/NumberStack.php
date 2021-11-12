@@ -15,6 +15,14 @@ class NumberStack
     }
 
     /**
+     * @returns int
+     */
+    public function getCount(): int
+    {
+        return count($this->stack);
+    }
+
+    /**
      * @returns void
      */
     public function push($number)
