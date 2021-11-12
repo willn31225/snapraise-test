@@ -33,7 +33,15 @@ class Calculator
 
         while (true) {
             $input = $this->io->input();
-            $this->validator->validate($input);
+            $errors = $this->validator->validate($input);
+
+            if ($errors) {
+                foreach ($errors as $error) {
+                    echo $error . PHP_EOL;
+                }
+                $this->validator->clearErrors();
+                continue;
+            }
 
             $this->parser->parseInputForNumbers($input, $stack);
             $this->parser->parseInputForOperators($input, $queue);

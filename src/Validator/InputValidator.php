@@ -6,7 +6,12 @@ use Calculator\OperatorQueue;
 
 class InputValidator
 {
-    private $errors;
+    private $errors = [];
+
+    public function clearErrors()
+    {
+        $this->errors = [];
+    }
 
     public function isSpaceDelimited($input) : bool
     {
@@ -20,6 +25,8 @@ class InputValidator
             return true;
         }
 
+        $this->errors[] = 'Input must be separated by spaces.';
+
         return false;
     }
 
@@ -31,6 +38,7 @@ class InputValidator
             if ($this->isNumberOrValidOperator($item)) {
                 continue;
             } else {
+                $this->errors[] = 'Input must contain numbers and valid operators (' . implode(' ', $this->getValidOperators()) . ')';
                 return false;
             }
         }
@@ -46,10 +54,9 @@ class InputValidator
             return true;
         }
 
-        $operatorQueue = new OperatorQueue();
-
         for ($i=0; $i<count($inputArray) - 2; $i++) {
-            if (is_numeric($inputArray[$i]) && in_array($inputArray[$i+1], $operatorQueue->getValidOperators()) && is_numeric($inputArray[$i+2])) {
+            if (is_numeric($inputArray[$i]) && in_array($inputArray[$i+1], $this->getValidOperators()) && is_numeric($inputArray[$i+2])) {
+                $this->errors[] = 'Input must have numbers followed by operators.';
                 return false;
             }
         }
@@ -59,13 +66,18 @@ class InputValidator
 
     private function isNumberOrValidOperator($item)
     {
-        $operatorQueue = new OperatorQueue();
-
-        if (is_numeric($item) || in_array($item, $operatorQueue->getValidOperators())) {
+        if (is_numeric($item) || in_array($item, $this->getValidOperators())) {
             return true;
         }
 
         return false;
+    }
+
+    private function getValidOperators()
+    {
+        $operatorQueue = new OperatorQueue();
+
+        return $operatorQueue->getValidOperators();
     }
 
     public function validate($input)
@@ -74,10 +86,8 @@ class InputValidator
         $this->isNumberOrValidOperator($input);
         $this->areOperatorsPrecededByNumbers($input);
 
-        if ($this->errors) {
-            return $this->errors;
-        }
-
-        return true;
+        return $this->errors;
     }
+
+
 }
