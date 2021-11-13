@@ -3,17 +3,14 @@
 namespace IO;
 
 use IO\IOInterface;
-use IO\CLI;
 
 class TCP implements IOInterface
 {
     private $socket;
     private $messageSocket;
-    private CLI $cli;
 
     public function __construct()
     {
-        $this->cli = new CLI();
         $this->setupTCPSocket();
     }
 
