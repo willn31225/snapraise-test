@@ -34,8 +34,6 @@ class Calculator
         $stack->init();
         $queue->init();
 
-        $this->validator->clearErrors();
-
         while (true) {
             $input = $this->io->input();
 
