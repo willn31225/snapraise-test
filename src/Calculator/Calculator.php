@@ -34,10 +34,12 @@ class Calculator
         $stack->init();
         $queue->init();
 
+        $this->validator->clearErrors();
+
         while (true) {
             $input = $this->io->input();
 
-            if ($input == 'q') {
+            if ($input == 'q' || !$input) {
                 $this->io->exit();
             }
 
